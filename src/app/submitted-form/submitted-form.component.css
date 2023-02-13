@@ -1,0 +1,18 @@
+header{
+    width:100%;
+    border:1px solid rgb(130, 130, 241);
+}
+.formStyle{
+    /* border:1px solid black; */
+    /* border-radius: 10px; */
+    /* width:40%; */
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+    border-spacing:20px 15px;
+    /* width: fit-content; */
+}
+.allDetails{
+    display:flex;
+    justify-content: space-around;
+}

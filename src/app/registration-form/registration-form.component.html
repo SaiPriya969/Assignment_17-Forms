@@ -1,0 +1,169 @@
+<!-- <p>registration-form works!</p> -->
+<!-- <a routerLink="register">Register</a><a routerLink="register/submittedForm">SubmittedDetails</a>
+<router-outlet></router-outlet> -->
+<form [formGroup]="form">
+  <h1 id="heading">Register User</h1>
+  <table class="formStyle">
+   
+      <tr>
+        <td>First Name</td>
+        <td>
+          <input type="text" formControlName="firstName"> <!--FirstName InputField-->
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getFirstName?.touched"> <!--if touched and empty -->
+            <div *ngIf="!getFirstName?.value else validFirstName ">
+              <span>*Required field</span>
+            </div>
+          </div>
+          <ng-template #validFirstName>
+            <span *ngIf="getFirstName?.invalid">Enter Valid Input</span>
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input type="text" formControlName="lastName"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getLastName?.touched">
+            <div *ngIf="!getLastName?.value else validLastName ">
+              <span>*Required field</span>
+            </div>
+          </div>
+          <ng-template #validLastName>
+            <span *ngIf="getFirstName?.invalid">Enter Valid Input</span>
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <td>User Name</td>
+        <td><input type="text" formControlName="userName" (focusout)="showFormControl($event)"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getUserName?.touched">
+            <div *ngIf="!getUserName?.value else validUserName ">
+              <span>*Required field</span>
+            </div>
+          </div>
+          <ng-template #validUserName>
+            <div *ngIf="getUserName?.invalid">Enter Valid Input</div>
+          </ng-template>
+        </td>
+      </tr>
+   
+      <tr>
+        <td>Age</td>
+        <td><input type="number" formControlName="age"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getAge?.touched">
+            <div *ngIf="!getAge?.value else validAge ">
+              <span>*Required field</span>
+            </div>
+          </div>
+          <ng-template #validAge>
+            <span *ngIf="getAge?.invalid">Enter Valid Input</span>
+          </ng-template>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Email Id</td>
+        <td><input type="text" formControlName="emailId"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getEmailId?.touched">
+            <div *ngIf="!getEmailId?.value else validEmailId ">
+              <span>*Required field</span>
+            </div>
+          </div>
+          <ng-template #validEmailId>
+            <span *ngIf="getEmailId?.invalid">Enter Valid Input</span>
+          </ng-template>
+        </td>
+      </tr>
+    
+      <tr>
+        <td>Phone</td>
+        <td><input type="text" formControlName="phn"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getPhn?.touched">
+            <div *ngIf="!getPhn?.value else validPhn ">
+              <span>*Required field</span>
+            </div>
+          </div>
+          <ng-template #validPhn>
+            <span *ngIf="getPhn?.invalid">Enter Valid Input</span>
+          </ng-template>
+        </td>
+      </tr>
+    </table>
+    <div id="additional" *ngFor="let i of addInfo; let idx =index;">
+      <div id="additionalInfo">
+        <br>
+      <tr>
+        <td>Additional Data Label</td>
+        <td><input type="text" formControlName="label" #additionalLabel (keyup.enter)="additionalData(additionalLabel.value);"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div *ngIf="getLabel?.touched">
+            <div *ngIf="!getLabel?.value">
+              <span>*Required field</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </div>
+    
+    
+      <app-additional-data  *ngIf="form.get('label')?.value" (labelValue)="labelValueFun($event)"></app-additional-data>
+      <br>
+    
+    <table class="formStyle">
+      <tr>
+        <td>Additional Info {{idx+1}}</td>
+      </tr>
+      <tr>
+        <td>Given Label:</td>
+        <!-- <td><input type="text" formControlName="givenLabel"></td> -->
+        <td>{{additionalDataLabel[idx]}}</td>
+      </tr>
+      <tr>
+        <td>Given Value:</td>
+        <!-- <td><input type="text" formControlName="givenValue"></td> -->
+        <td>{{additionalDataValue[idx]}}</td>
+        <!-- <tr>
+          <td>Additional Info:</td>
+        </tr>
+        <tr>
+          <td>{{additionalInfo}}</td>-->
+      </tr> 
+    </table>
+    <button title="Add one more" id=addBtn (click)="update()">+</button>
+     
+    </div>
+  
+      <div id="form__btn--style"> 
+        <td><button id="reset" type="reset">Reset</button></td>
+        <td><button id="submit" [disabled]="!this.form.valid" (click)="submitDetails($event)">Submit</button></td>
+      </div>
+    
+</form>
+<!-- <router-outlet></router-outlet> -->

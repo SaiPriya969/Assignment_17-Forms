@@ -1,0 +1,53 @@
+<!-- <p>submitted-form works!</p> -->
+<!-- <div>{{arr}}</div> -->
+<header>
+    {{Arr[2]}}
+</header>
+<!-- <table class="formStyle">
+    <tr>
+        <td>Name</td>
+        {{arr | json }} -->
+        <!-- <td>: {{Arr[0]+" "+ Arr[1]}}</td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>:{{Arr[3]}}</td>
+    </tr>
+    <tr>
+        <td>EmailId</td>
+        <td>:{{Arr[4]}}</td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td>:{{Arr[5]}}</td>
+    </tr>
+    <tr>
+        <td>{{Arr[6]}}</td>
+        <td>:{{Arr[7]}}</td>
+    </tr>
+</table>
+<div>{{additionalDetails[0]}}</div>  -->
+<div class="allDetails">
+<div>
+    <h1>Details</h1>
+    <div>
+        Name:{{Arr[0]+" "+Arr[1]}}
+    </div>
+    <div>
+        Age:{{Arr[3]}}
+    </div>
+    <div>
+        Email-Id:{{Arr[4]}}
+    </div>
+    <div>
+        Phone:{{Arr[5]}}
+    </div>
+</div>
+<div>
+    <h1>Additional Details</h1>
+    <div *ngFor="let i of additionalDetails">
+        <div>{{i[0]}}:{{i[1]}}</div>
+
+    </div>
+</div>
+</div>

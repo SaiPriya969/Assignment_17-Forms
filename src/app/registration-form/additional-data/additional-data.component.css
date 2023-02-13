@@ -1,0 +1,17 @@
+select{
+    width:100px;
+    height:21px;
+  }
+  #error{
+    color:red;
+  }
+  #inner{
+    
+
+  }
+  #addBtn{
+    position: relative;
+    top:20px;
+    /* border-radius: 5px; */
+  }
+ 
